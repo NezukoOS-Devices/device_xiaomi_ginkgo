@@ -332,6 +332,7 @@ PRODUCT_PACKAGES += \
     init.qti.dcvs.sh \
     init.recovery.qcom.rc \
     init.target.rc \
+    init.xiaomi_parts.rc \
     ueventd.qcom.rc
 
 # RCS
@@ -458,3 +459,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# XiaomiParts
+PRODUCT_PACKAGES += \
+    XiaomiParts
