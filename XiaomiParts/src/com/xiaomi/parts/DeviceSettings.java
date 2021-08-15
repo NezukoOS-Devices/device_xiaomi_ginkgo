@@ -29,6 +29,8 @@ import com.xiaomi.parts.preferences.SecureSettingListPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
 import com.xiaomi.parts.preferences.VibrationSeekBarPreference;
 import com.xiaomi.parts.speaker.ClearSpeakerActivity;
+import com.xiaomi.parts.kcal.KCalSettingsActivity;
+import com.xiaomi.parts.display.LcdFeaturesPreferenceActivity;
 
 import java.lang.Math.*;
 
@@ -45,6 +47,8 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private static final String PREF_DEVICE_KCAL = "device_kcal";
 
+    private static final String PREF_LCD_FEATURES = "lcd_features_settings";
+
     private static final String PREF_CLEAR_SPEAKER = "clear_speaker_settings";
 
     public static final String CATEGORY_FASTCHARGE = "usb_fastcharge";
@@ -59,6 +63,7 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final int MIN_VIBRATION = 1504;
     public static final int MAX_VIBRATION = 3544;
 
+    private Preference mLcdFeaturesPref;
     private Preference mClearSpeakerPref;
     private SecureSettingSwitchPreference mFastcharge;
 
@@ -99,6 +104,13 @@ public class DeviceSettings extends PreferenceFragment implements
 
         kcal.setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(getActivity().getApplicationContext(), KCalSettingsActivity.class);
+            startActivity(intent);
+            return true;
+        });
+
+        mLcdFeaturesPref = (Preference) findPreference(PREF_LCD_FEATURES);
+        mLcdFeaturesPref.setOnPreferenceClickListener(preference -> {
+            Intent intent = new Intent(getActivity().getApplicationContext(), LcdFeaturesPreferenceActivity.class);
             startActivity(intent);
             return true;
         });
